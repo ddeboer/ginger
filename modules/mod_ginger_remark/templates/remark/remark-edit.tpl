@@ -11,12 +11,14 @@
 
             <fieldset>
                 {% if not m.acl.user and is_new %}
-                    <p class="remark-form__name">
-                        <label for="anonymous_name">{_ Name _}</label><input type="text" name="anonymous_name" id="anonymous_name" value="{{ remark_id.anonymous_name }}">
-                    </p>
-                    <p class="remark-form__email">
-                        <label for="anonymous_email">{_ E-mail _}</label><input type="text" name="anonymous_email" id="anonymous_email" value="{{ remark_id.anonymous_email }}">
-                    </p>
+                    <div class="remark-form__anonymous">
+                        <p class="remark-form__name">
+                            <label for="anonymous_name">{_ Name _}</label><input type="text" name="anonymous_name" id="anonymous_name" value="{{ remark_id.anonymous_name }}">
+                        </p>
+                        <p class="remark-form__email">
+                            <label for="anonymous_email">{_ E-mail _}</label><input type="text" name="anonymous_email" id="anonymous_email" value="{{ remark_id.anonymous_email }}">
+                        </p>
+                    </div>
                 {% endif %}
                 <p>
                     <label for="title">{_ Title _}</label><input type="text" name="title" id="title" value="{{ remark_id.title }}">

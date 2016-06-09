@@ -4,6 +4,9 @@
             <div class="remark-item__author">
                     {% if remark_id.o.author as author %}
                         {% include "avatar/avatar.tpl" id=author %}
+                    {% elseif remark_id.anonymous_name %}
+                        {% include "avatar/avatar.tpl"%}
+                        {{ remark_id.anonymous_name }}
                     {% else %}
                         {% include "avatar/avatar.tpl" id=m.rsc[remark_id.creator_id] %}
                     {% endif %}
