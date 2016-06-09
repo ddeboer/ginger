@@ -5,7 +5,7 @@
                     {% if remark_id.o.author as author %}
                         {% include "avatar/avatar.tpl" id=author %}
                     {% elseif remark_id.anonymous_name %}
-                        {% include "avatar/avatar.tpl" id=remark_id %}
+                        {% image m.rsc.fallback.id mediaclass="avatar" class="avatar__image" %}
                         {% if remark_id.anonymous_email_visible %}
                              <a href="click.to.mail"  address="{{ remark_id.anonymous_email|mailencode }}" class="do_mail_decode">{{ remark_id.anonymous_name }}</a>
                         {% else %}
