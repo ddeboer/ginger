@@ -10,7 +10,7 @@
 -include_lib("zotonic.hrl").
 
 -mod_prio(1).
--mod_schema(4).
+-mod_schema(8).
 
 -export([
     manage_schema/2,

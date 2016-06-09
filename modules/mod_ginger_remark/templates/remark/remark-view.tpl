@@ -56,7 +56,9 @@
             {% if remark_id.is_editable and not id.o.hasremark|index_of:remark_id.id %}
                 <div class="remark-item__buttons">
                     <a href="#" class="remark-edit" title="{_ edit _}">{_ edit _}</a>
-                    <a href="#" class="remark-delete" title="{_ delete _}">{_ delete _}</a>
+                    {% if m.acl.user %}
+                        <a href="#" class="remark-delete" title="{_ delete _}">{_ delete _}</a>
+                    {% endif %}
                 </div>
             {% endif %}
         </article>
