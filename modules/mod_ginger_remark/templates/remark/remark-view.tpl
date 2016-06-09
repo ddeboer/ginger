@@ -6,11 +6,6 @@
                         {% include "avatar/avatar.tpl" id=author %}
                     {% elseif remark_id.anonymous_name %}
                         {% image m.rsc.fallback.id mediaclass="avatar" class="avatar__image" %}
-                        {% if remark_id.anonymous_email_visible %}
-                             <a href="click.to.mail"  address="{{ remark_id.anonymous_email|mailencode }}" class="do_mail_decode">{{ remark_id.anonymous_name }}</a>
-                        {% else %}
-                            {{ remark_id.anonymous_name }}
-                        {% endif %}
                     {% else %}
                         {% include "avatar/avatar.tpl" id=m.rsc[remark_id.creator_id] %}
                     {% endif %}
@@ -18,6 +13,12 @@
 
                     {% if remark_id.o.author as author %}
                         <b>{{ author.title }}</b>
+                    {% elseif remark_id.anonymous_name %}
+                        {% if remark_id.anonymous_email_visible %}
+                             <a href="click.to.mail"  address="{{ remark_id.anonymous_email|mailencode }}" class="do_mail_decode">{{ remark_id.anonymous_name }}</a>
+                        {% else %}
+                            {{ remark_id.anonymous_name }}
+                        {% endif %}
                     {% else %}
                         <b>{{ m.rsc[remark_id.creator_id].title }}</b>
                     {% endif %}
