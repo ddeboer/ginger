@@ -97,7 +97,8 @@
                 anonymousEmail = $('#anonymous_email'),
                 title = $('input#title'),
                 valid = true,
-                re = /[a-z A-Z 0-1]+/i;
+                re = /[a-z A-Z 0-1]+/i,
+                em = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
             var rawContent = tinymce.get(tinyname).getContent({'format':'raw'});
 
@@ -123,7 +124,7 @@
                     valid = false;
                 }
 
-                if (!re.test(anonymousEmail.val())) {
+                if (!em.test(anonymousEmail.val())) {
                     anonymousEmail.closest('p').addClass('is-error');
                     valid = false;
                 }
