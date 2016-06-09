@@ -39,7 +39,7 @@
                     {% if deps %}
                         <div class="remark-item__media">
                             {% for dep in deps %}
-                                {% if media|length > 1 %}
+                                {% if media|length > 1 and m.acl.user %}
                                     {% catinclude "remark-media/remark-media.image.tpl" dep remark_id=remark_id %}
                                 {% else %}
                                     {% catinclude "remark-media/remark-media.image.tpl" dep remark_id=remark_id first %}
