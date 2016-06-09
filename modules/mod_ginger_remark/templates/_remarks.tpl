@@ -14,7 +14,7 @@
         <h2 class="list-header__title">
             {{ remarks|length }} {% if remarks|length == 1 %}{_ Reaction _}{% else %}{_ Reactions _}{% endif %}
         </h2>
-            <a href="#" class="remark-new" title="Add your story to this">{_ Voeg jouw verhaal hieraan toe _}</a>
+        <a href="#" class="remark-new" title="Add your story to this">{_ Voeg jouw verhaal hieraan toe _}</a>
     </div>
 
     {% include "remark-pager/remark-pager.tpl" %}

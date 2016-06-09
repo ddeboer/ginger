@@ -17,6 +17,7 @@
                         </p>
                         <p class="remark-form__email">
                             <label for="anonymous_email">{_ E-mail _}</label><input type="text" name="anonymous_email" id="anonymous_email" value="{{ remark_id.anonymous_email }}">
+                            <small><label for="anonymous_email_visible"><input type="checkbox" name="anonymous_email_visible" id="anonymous_email_visible">{_ visible for public _}</label></small>
                         </p>
                     </div>
                 {% endif %}
@@ -24,8 +25,7 @@
                     <label for="title">{_ Title _}</label><input type="text" name="title" id="title" value="{{ remark_id.title }}">
                 </p>
 
-                <textarea rows="10" cols="10" id="rsc-tiny
-                " name="body" class="body z_editor-init form-control">{{ remark_id.body }}</textarea>
+                <textarea rows="10" cols="10" id="rsc-tiny{{#ident}}" name="body" class="body z_editor-init form-control">{{ remark_id.body }}</textarea>
             </fieldset>
 
             <div class="remark-form__buttons">

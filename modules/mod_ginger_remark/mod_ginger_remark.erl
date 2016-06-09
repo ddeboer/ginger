@@ -70,9 +70,9 @@ is_owner(Id, #context{user_id=undefined, session_id=SessionId} = Context) ->
          SessionOwner -> SessionId == SessionOwner
     end.
 
-observe_acl_is_allowed_prop(#acl_is_allowed_prop{action=view, prop=session_owner}}, _Context) ->
+observe_acl_is_allowed_prop(#acl_is_allowed_prop{action=view, prop=session_owner}, _Context) ->
     false;
-observe_acl_is_allowed_prop(#acl_is_allowed_prop{} = Prop, _Context) ->
+observe_acl_is_allowed_prop(#acl_is_allowed_prop{}, _Context) ->
     undefined.
 
 observe_rsc_update(#rsc_update{action=insert},

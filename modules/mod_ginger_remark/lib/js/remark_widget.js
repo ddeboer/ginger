@@ -93,6 +93,8 @@
                 form = me.widgetElement.find('#rscform'),
                 tinyname = form.data('tinyname'),
                 contentText = tinymce.get(tinyname).getContent({'format':'text'}).trim(),
+                anonymousName = $('#anonymous_name'),
+                anonymousEmail = $('#anonymous_email'),
                 title = $('input#title'),
                 valid = true,
                 re = /[a-z A-Z 0-1]+/i;
@@ -113,6 +115,18 @@
             if (!re.test(title.val())) {
                 title.closest('p').addClass('is-error');
                 valid = false;
+            }
+
+            if (anonymousName.size() > 0) {
+                if (!re.test(anonymousName.val())) {
+                    anonymousName.closest('p').addClass('is-error');
+                    valid = false;
+                }
+
+                if (!re.test(anonymousEmail.val())) {
+                    anonymousEmail.closest('p').addClass('is-error');
+                    valid = false;
+                }
             }
 
             if (valid) {

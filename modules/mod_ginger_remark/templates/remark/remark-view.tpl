@@ -5,8 +5,12 @@
                     {% if remark_id.o.author as author %}
                         {% include "avatar/avatar.tpl" id=author %}
                     {% elseif remark_id.anonymous_name %}
-                        {% include "avatar/avatar.tpl"%}
-                        {{ remark_id.anonymous_name }}
+                        {% include "avatar/avatar.tpl" id=remark_id %}
+                        {% if remark_id.anonymous_email_visible %}
+                             <a href="click.to.mail"  address="{{ remark_id.anonymous_email|mailencode }}" class="do_mail_decode">{{ remark_id.anonymous_name }}</a>
+                        {% else %}
+                            {{ remark_id.anonymous_name }}
+                        {% endif %}
                     {% else %}
                         {% include "avatar/avatar.tpl" id=m.rsc[remark_id.creator_id] %}
                     {% endif %}
