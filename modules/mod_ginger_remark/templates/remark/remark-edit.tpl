@@ -10,12 +10,16 @@
             <input type="hidden" name="content_group_id" value="{{ m.rsc.cg_user_generated.id }}" />
 
             <fieldset>
+                {% if not m.acl.user and is_new %}
+                    <p class="remark-form__name">
+                        <label for="anonymous_name">{_ Name _}</label><input type="text" name="anonymous_name" id="anonymous_name" value="{{ remark_id.anonymous_name }}">
+                    </p>
+                    <p class="remark-form__email">
+                        <label for="anonymous_email">{_ E-mail _}</label><input type="text" name="anonymous_email" id="anonymous_email" value="{{ remark_id.anonymous_email }}">
+                    </p>
+                {% endif %}
                 <p>
                     <label for="title">{_ Title _}</label><input type="text" name="title" id="title" value="{{ remark_id.title }}">
-                    {% if not m.acl.user and is_new %}
-                        <label for="anonymous_name">{_ Name _}</label><input type="text" name="anonymous_name" id="anonymous_name" value="{{ remark_id.anonymous_name }}">
-                        <label for="anonymous_email">{_ E-mail _}</label><input type="text" name="anonymous_email" id="anonymous_email" value="{{ remark_id.anonymous_email }}">
-                    {% endif %}
                 </p>
 
                 <textarea rows="10" cols="10" id="rsc-tiny
