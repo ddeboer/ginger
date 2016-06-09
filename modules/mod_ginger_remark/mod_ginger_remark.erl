@@ -15,7 +15,8 @@
 -export([
     manage_schema/2,
     observe_rsc_update/3,
-    observe_acl_is_allowed/2
+    observe_acl_is_allowed/2,
+    observe_acl_is_allowed_prop/2
 ]).
 
 manage_schema(_Version, Context) ->
@@ -68,6 +69,11 @@ is_owner(Id, #context{user_id=undefined, session_id=SessionId} = Context) ->
          undefined -> false;
          SessionOwner -> SessionId == SessionOwner
     end.
+
+observe_acl_is_allowed_prop(#acl_is_allowed_prop{action=view, prop=session_owner}}, _Context) ->
+    false;
+observe_acl_is_allowed_prop(#acl_is_allowed_prop{} = Prop, _Context) ->
+    undefined.
 
 observe_rsc_update(#rsc_update{action=insert},
                    {_IsChanged, UpdateProps},
